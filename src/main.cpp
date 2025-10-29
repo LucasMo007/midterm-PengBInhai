@@ -121,6 +121,15 @@ int main()
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vector2), (void*)0);
 
+    glGenBuffers(1, &vboCol);
+    glBindBuffer(GL_ARRAY_BUFFER, vboCol);
+    glBufferData(GL_ARRAY_BUFFER,
+        colors.size() * sizeof(Vector3),
+        colors.data(),
+        GL_STATIC_DRAW);
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3), (void*)0);
+
 
        
     
