@@ -53,6 +53,13 @@ int main()
         {  0.9f, -0.9f }, 
         {  0.0f,  0.9f }  
     };
+
+    Vector3 cornerColors[3] =
+    {
+        { 1.0f, 0.0f, 0.0f }, 
+        { 0.0f, 1.0f, 0.0f }, 
+        { 0.0f, 0.0f, 1.0f }  
+    };
     // 3 random integers between 0 and 2 
     //int a = rand() % 3;
     //int b = rand() % 3;
