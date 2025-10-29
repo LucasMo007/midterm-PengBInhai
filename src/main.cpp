@@ -3,6 +3,7 @@
 #include <cstdlib>  // For rand
 #include <cstdio>   // For printf
 #include <ctime>    // For time
+#include <vector>
 
 RMAPI float Random(float min, float max)
 {
@@ -60,6 +61,11 @@ int main()
         { 0.0f, 1.0f, 0.0f }, 
         { 0.0f, 0.0f, 1.0f }  
     };
+
+    std::vector<Vector2> positions;
+    std::vector<Vector3> colors;
+    positions.reserve(POINT_COUNT);
+    colors.reserve(POINT_COUNT);
     // 3 random integers between 0 and 2 
     //int a = rand() % 3;
     //int b = rand() % 3;
