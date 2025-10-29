@@ -186,8 +186,11 @@ int main()
         Matrix world = MatrixIdentity();
         Matrix mvp = world * view * proj;
 
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
+     /*   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);*/
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
 
         glLineWidth(5.0f);
         glBindVertexArray(vao_line);
