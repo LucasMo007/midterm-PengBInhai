@@ -130,10 +130,16 @@ int main()
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3), (void*)0);
 
-    GLuint vs = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/points.vert");
-    GLuint fs = CreateShader(GL_FRAGMENT_SHADER, "./assets/shaders/points.frag");
+    GLuint vs = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/a2_points.vert");
+    GLuint fs = CreateShader(GL_FRAGMENT_SHADER, "./assets/shaders/a2_points.frag");
     GLuint prog = CreateProgram(vs, fs);
 
+    if (prog == 0) {
+        puts("[points] Program link failed or shaders not found.");
+       
+        DestroyWindow();
+        return 0;
+    }
     glEnable(GL_PROGRAM_POINT_SIZE);
 
     Matrix proj = MatrixOrtho(-1.0f, 1.0f, -1.0f, 1.0f, 0.01f, 100.0f);
