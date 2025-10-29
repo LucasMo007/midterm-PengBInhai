@@ -130,7 +130,9 @@ int main()
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3), (void*)0);
 
-
+    GLuint vs = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/points.vert");
+    GLuint fs = CreateShader(GL_FRAGMENT_SHADER, "./assets/shaders/points.frag");
+    GLuint prog = CreateProgram(vs, fs);
        
     
     GLuint a2_lines_vert = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/a2_lines.vert");
