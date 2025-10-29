@@ -141,6 +141,9 @@ int main()
     Matrix world = MatrixIdentity();
     Matrix mvp = world * view * proj;
 
+    GLint u_mvp = glGetUniformLocation(prog, "u_mvp");
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
        
     
     GLuint a2_lines_vert = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/a2_lines.vert");
