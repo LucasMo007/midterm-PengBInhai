@@ -68,6 +68,20 @@ int main()
     colors.reserve(POINT_COUNT);
 
     Vector2 prev = { 0.0f, 0.0f };
+
+    for (int i = 0; i < POINT_COUNT; i++)
+    {
+        int n = rand() % 3; 
+
+        Vector2 curr;
+        curr.x = (prev.x + corners[n].x) * 0.5f;
+        curr.y = (prev.y + corners[n].y) * 0.5f;
+
+        positions.push_back(curr);
+        colors.push_back(cornerColors[n]);
+
+        prev = curr;
+    }
     // 3 random integers between 0 and 2 
     //int a = rand() % 3;
     //int b = rand() % 3;
