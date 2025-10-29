@@ -190,7 +190,12 @@ int main()
      /*   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);*/
         glClear(GL_COLOR_BUFFER_BIT);
 
-
+        glUseProgram(prog);
+        glUniformMatrix4fv(u_mvp, 1, GL_FALSE, MatrixToFloat(mvp));
+        glBindVertexArray(vao);
+        glDrawArrays(GL_POINTS, 0, POINT_COUNT);
+        glBindVertexArray(0);
+        glUseProgram(0);
 
         glLineWidth(5.0f);
         glBindVertexArray(vao_line);
