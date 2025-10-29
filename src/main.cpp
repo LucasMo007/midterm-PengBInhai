@@ -46,6 +46,13 @@ int main()
     // srand "seeds" the random number generator, so your "random sequence" isn't the same every program run.
     srand(time(nullptr));
     constexpr int POINT_COUNT = 30000;
+
+    Vector2 corners[3] =
+    {
+        { -0.9f, -0.9f },
+        {  0.9f, -0.9f }, 
+        {  0.0f,  0.9f }  
+    };
     // 3 random integers between 0 and 2 
     //int a = rand() % 3;
     //int b = rand() % 3;
