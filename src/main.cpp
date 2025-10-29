@@ -45,7 +45,7 @@ int main()
     // Random number generator example -- % 3 generates random numbers between 0, 1, and 2.
     // srand "seeds" the random number generator, so your "random sequence" isn't the same every program run.
     srand(time(nullptr));
-    
+    constexpr int POINT_COUNT = 30000;
     // 3 random integers between 0 and 2 
     //int a = rand() % 3;
     //int b = rand() % 3;
@@ -71,6 +71,7 @@ int main()
     line_vertex_positions2[7] = Vector2Lerp(line_vertex_positions[0], line_vertex_positions[1], 0.5f);
 
     CreateWindow(800, 800, "Graphics 1");
+       
     
     GLuint a2_lines_vert = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/a2_lines.vert");
     GLuint a2_lines_frag = CreateShader(GL_FRAGMENT_SHADER, "./assets/shaders/a2_lines.frag");
