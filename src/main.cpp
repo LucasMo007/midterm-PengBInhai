@@ -160,13 +160,13 @@ int main()
     glGenBuffers(1, &vbo_line_positions);
     glBindBuffer(GL_ARRAY_BUFFER, vbo_line_positions);
     glBufferData(GL_ARRAY_BUFFER, sizeof(line_vertex_positions), line_vertex_positions, GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, GL_NONE);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     GLuint vbo_line_colors;
     glGenBuffers(1, &vbo_line_colors);
     glBindBuffer(GL_ARRAY_BUFFER, vbo_line_colors);
     glBufferData(GL_ARRAY_BUFFER, sizeof(line_vertex_colors), line_vertex_colors, GL_STATIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER, GL_NONE);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     GLuint vao_line;
     glGenVertexArrays(1, &vao_line);
@@ -180,7 +180,7 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, vbo_line_colors);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3), nullptr);
     
-    glBindVertexArray(GL_NONE);
+    glBindVertexArray(0);
 
     while (!WindowShouldClose())
     {
@@ -193,8 +193,8 @@ int main()
         Matrix mvp = world * view * proj;
 
         glClearColor(0.15f, 0.15f, 0.15f, 1.0f);
-     /*   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);*/
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+       /* glClear(GL_COLOR_BUFFER_BIT);*/
 
         glUseProgram(prog);
         glUniformMatrix4fv(u_mvp, 1, GL_FALSE, MatrixToFloat(mvp));
@@ -210,9 +210,9 @@ int main()
         glUseProgram(a2_lines_shader);
         glUniformMatrix4fv(loc_mvp, 1, GL_FALSE, MatrixToFloat(mvp));
         glDrawArrays(GL_LINES, 0, line_vertex_count);
-        glUseProgram(GL_NONE);
+        glUseProgram(0);
         
-        glBindVertexArray(GL_NONE);
+        glBindVertexArray(0);
         glLineWidth(1.0f);
 
         BeginGui();
@@ -224,6 +224,7 @@ int main()
 
     glDeleteVertexArrays(1, &vao_line);
     glDeleteBuffers(1, &vbo_line_positions);
+    glDeleteBuffers(1, &vbo_line_colors);
     glDeleteProgram(a2_lines_shader);
     glDeleteShader(a2_lines_frag);
     glDeleteShader(a2_lines_vert);
