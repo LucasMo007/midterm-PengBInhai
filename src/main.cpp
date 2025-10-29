@@ -107,6 +107,14 @@ int main()
     line_vertex_positions2[7] = Vector2Lerp(line_vertex_positions[0], line_vertex_positions[1], 0.5f);
 
     CreateWindow(800, 800, "Graphics 1");
+
+    GLuint vao = 0, vboPos = 0, vboCol = 0;
+    glGenVertexArrays(1, &vao);
+    glBindVertexArray(vao);
+
+
+
+
        
     
     GLuint a2_lines_vert = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/a2_lines.vert");
