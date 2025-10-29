@@ -112,7 +112,14 @@ int main()
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
 
-
+    glGenBuffers(1, &vboPos);
+    glBindBuffer(GL_ARRAY_BUFFER, vboPos);
+    glBufferData(GL_ARRAY_BUFFER,
+        positions.size() * sizeof(Vector2),
+        positions.data(),
+        GL_STATIC_DRAW);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(Vector2), (void*)0);
 
 
        
