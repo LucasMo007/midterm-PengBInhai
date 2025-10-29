@@ -66,6 +66,8 @@ int main()
     std::vector<Vector3> colors;
     positions.reserve(POINT_COUNT);
     colors.reserve(POINT_COUNT);
+
+    Vector2 prev = { 0.0f, 0.0f };
     // 3 random integers between 0 and 2 
     //int a = rand() % 3;
     //int b = rand() % 3;
