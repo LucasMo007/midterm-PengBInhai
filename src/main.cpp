@@ -133,6 +133,14 @@ int main()
     GLuint vs = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/points.vert");
     GLuint fs = CreateShader(GL_FRAGMENT_SHADER, "./assets/shaders/points.frag");
     GLuint prog = CreateProgram(vs, fs);
+
+    glEnable(GL_PROGRAM_POINT_SIZE);
+
+    Matrix proj = MatrixOrtho(-1.0f, 1.0f, -1.0f, 1.0f, 0.01f, 100.0f);
+    Matrix view = MatrixLookAt({ 0,0,10 }, { 0,0,0 }, { 0,1,0 });
+    Matrix world = MatrixIdentity();
+    Matrix mvp = world * view * proj;
+
        
     
     GLuint a2_lines_vert = CreateShader(GL_VERTEX_SHADER, "./assets/shaders/a2_lines.vert");
